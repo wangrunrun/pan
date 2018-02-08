@@ -111,7 +111,6 @@
     document.getElementById("zhi").addEventListener("touchmove", function (e) {
         _y_move = e.touches[0].pageY;
         var num = (parseFloat(_y_move) - parseFloat(_y_start) + parseFloat(top_start)) * scale;
-        console.log(num);
         if (num < 100) {
             $("#zhi").css("top", 100 / scale);
         }

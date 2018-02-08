@@ -44,10 +44,10 @@
         }
 
         #img {
-            top: -2.52rem;
-            left: -2.44rem;
-            width: 12.95rem;
-            height: 12.95rem;
+            top: -3.52rem;
+            left: -3.44rem;
+            width: 16rem;
+            height: 16rem;
             position: absolute;
             -webkit-animation: circle 5s infinite linear;
             -moz-animation: circle 5s infinite linear
@@ -96,7 +96,18 @@
     })
     document.getElementById("zhi").addEventListener("touchmove", function (e) {
         _y_move = e.touches[0].pageY;
-        $("#zhi").css("top",parseFloat(_y_move)-parseFloat(_y_start)+parseFloat(top_start)+"px");
+        var num=(parseFloat(_y_move)-parseFloat(_y_start)+parseFloat(top_start))*scale;
+        console.log(num);
+        if(num<160){
+            $("#zhi").css("top",180/scale);
+        }
+        else if(num>300){
+            $("#zhi").css("top",300/scale);
+        }
+        else {
+            $("#zhi").css("top",parseFloat(_y_move)-parseFloat(_y_start)+parseFloat(top_start)+"px");
+        }
+
     })
     document.getElementById("zhi").addEventListener("touchend", function (e) {
 

@@ -44,10 +44,10 @@
         }
 
         #img {
-            top: -3.52rem;
-            left: -3.44rem;
-            width: 16rem;
-            height: 16rem;
+            top: -8rem;
+            left: -4.2rem;
+            width: 18rem;
+            height: 18rem;
             position: absolute;
             -webkit-animation: circle 5s infinite linear;
             -moz-animation: circle 5s infinite linear
@@ -87,10 +87,10 @@
 <div id="zhi">
     <img src="img/zhi.png">
 </div>
-<audio src="./studio/The%20Weeknd%20-%20I%20Feel%20It%20Coming%20Ft.%20Daft%20Punk%20(DawnFoxes.com).mp3" autoplay="autoplay" style="display: none"></audio>
+<audio src="./studio/1.mp3" autoplay="autoplay" style="display: none"></audio>
 </body>
 <script type="text/javascript">
-    var _x_start, _y_start, _x_move, _y_move, _x_end, _y_end, left_start, top_start;
+    var  _y_start,_y_move,top_start;
     document.getElementById("zhi").addEventListener("touchstart", function (e) {
         _y_start = e.touches[0].pageY;
         top_start = $("#zhi").css("top");
@@ -99,11 +99,11 @@
         _y_move = e.touches[0].pageY;
         var num = (parseFloat(_y_move) - parseFloat(_y_start) + parseFloat(top_start)) * scale;
         console.log(num);
-        if (num < 160) {
-            $("#zhi").css("top", 180 / scale);
+        if (num < 60) {
+            $("#zhi").css("top", 60 / scale);
         }
-        else if (num > 300) {
-            $("#zhi").css("top", 300 / scale);
+        else if (num > 270) {
+            $("#zhi").css("top", 270 / scale);
         }
         else {
             $("#zhi").css("top", parseFloat(_y_move) - parseFloat(_y_start) + parseFloat(top_start) + "px");

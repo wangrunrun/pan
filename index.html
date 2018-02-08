@@ -87,10 +87,23 @@
 <div id="zhi">
     <img src="img/zhi.png">
 </div>
-<audio src="./studio/1.mp3" autoplay="autoplay" style="display: none"></audio>
+<audio src="./studio/1.mp3" autoplay="autoplay" style="display: none" id="bg-music"></audio>
 </body>
 <script type="text/javascript">
-    var  _y_start,_y_move,top_start;
+    var audio = document.getElementById('bg-music');
+    function audioAutoPlay() {
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+        }, false);
+        document.addEventListener('YixinJSBridgeReady', function () {
+            audio.play();
+        }, false);
+        document.addEventListener('touchstart', function () {
+            audio.play();
+        }, false);
+    }
+    audioAutoPlay();
+    var _y_start, _y_move, top_start;
     document.getElementById("zhi").addEventListener("touchstart", function (e) {
         _y_start = e.touches[0].pageY;
         top_start = $("#zhi").css("top");

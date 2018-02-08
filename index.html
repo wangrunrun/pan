@@ -93,16 +93,13 @@
     document.getElementById("zhi").addEventListener("touchstart", function (e) {
         _y_start = e.touches[0].pageY;
         top_start = $("#zhi").css("top");
-        console.log(top_start);
-        console.log(_y_start);
     })
     document.getElementById("zhi").addEventListener("touchmove", function (e) {
         _y_move = e.touches[0].pageY;
         $("#zhi").css("top",parseFloat(_y_move)-parseFloat(_y_start)+parseFloat(top_start)+"px");
     })
     document.getElementById("zhi").addEventListener("touchend", function (e) {
-        var _x_end = e.changedTouches[0].pageX;
-        var _y_end = e.changedTouches[0].pageY;
+
     })
     //阻止浏览器下拉事件
     $('body').on('touchmove', function (event) {

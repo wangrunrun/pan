@@ -1,36 +1,40 @@
 <html lang="en">
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <script>!function (e) {
-        function t(a) {
-            if (i[a])return i[a].exports;
-            var n = i[a] = {exports: {}, id: a, loaded: !1};
-            return e[a].call(n.exports, n, n.exports, t), n.loaded = !0, n.exports
-        }
+    <script>
+        var scale = 1;
+        !function (e) {
+            function t(a) {
+                if (i[a])return i[a].exports;
+                var n = i[a] = {exports: {}, id: a, loaded: !1};
+                return e[a].call(n.exports, n, n.exports, t), n.loaded = !0, n.exports
+            }
 
-        var i = {};
-        return t.m = e, t.c = i, t.p = "", t(0)
-    }([function (e, t) {
-        "use strict";
-        Object.defineProperty(t, "__esModule", {value: !0});
-        var i = window;
-        t["default"] = i.flex = function (e, t) {
-            var a = e || 100, n = t || 1, r = i.document, o = navigator.userAgent,
-                d = o.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i), l = o.match(/U3\/((\d+|\.){5,})/i),
-                c = l && parseInt(l[1].split(".").join(""), 10) >= 80,
-                p = navigator.appVersion.match(/(iphone|ipad|ipod)/gi), s = i.devicePixelRatio || 1;
-            p || d && d[1] > 534 || c || (s = 1);
-            var u = 1 / s, m = r.querySelector('meta[name="viewport"]');
-            m || (m = r.createElement("meta"), m.setAttribute("name", "viewport"), r.head.appendChild(m)), m.setAttribute("content", "width=device-width,user-scalable=no,initial-scale=" + u + ",maximum-scale=" + u + ",minimum-scale=" + u), r.documentElement.style.fontSize = a / 2 * s * n + "px"
-        }, e.exports = t["default"]
-    }]);
-    flex(100, 1);</script>
+            var i = {};
+            return t.m = e, t.c = i, t.p = "", t(0)
+        }([function (e, t) {
+            "use strict";
+            Object.defineProperty(t, "__esModule", {value: !0});
+            var i = window;
+            t["default"] = i.flex = function (e, t) {
+                var a = e || 100, n = t || 1, r = i.document, o = navigator.userAgent,
+                    d = o.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i), l = o.match(/U3\/((\d+|\.){5,})/i),
+                    c = l && parseInt(l[1].split(".").join(""), 10) >= 80,
+                    p = navigator.appVersion.match(/(iphone|ipad|ipod)/gi), s = i.devicePixelRatio || 1;
+                p || d && d[1] > 534 || c || (s = 1);
+                var u = 1 / s, m = r.querySelector('meta[name="viewport"]');
+                scale = 1 / s;
+                m || (m = r.createElement("meta"), m.setAttribute("name", "viewport"), r.head.appendChild(m)), m.setAttribute("content", "width=device-width,user-scalable=no,initial-scale=" + u + ",maximum-scale=" + u + ",minimum-scale=" + u), r.documentElement.style.fontSize = a / 2 * s * n + "px"
+            }, e.exports = t["default"]
+        }]);
+        flex(100, 1);</script>
     <meta content="yes" name="apple-mobile-web-app-capable">
     <meta content="black" name="apple-mobile-web-app-status-bar-style">
     <meta content="telephone=no" name="format-detection">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
     <title>Title</title>
     <style type="text/css">
-        body,html{
+        body, html {
             margin: 0;
             padding: 0;
             width: 100%;
@@ -38,32 +42,74 @@
             overflow: hidden;
             position: relative;
         }
-        #img{
+
+        #img {
             top: -2.52rem;
             left: -2.44rem;
             width: 12.95rem;
-            height:12.95rem;
+            height: 12.95rem;
             position: absolute;
-            -webkit-animation:circle 5s infinite linear;
-            -moz-animation:circle 5s infinite linear
-        }
-        #img img{
-            width: 100%;
-        }
-        @-webkit-keyframes circle{
-            0%{ transform:rotate(0deg); }
-            100%{ transform:rotate(-360deg); }
-        }
-        @-moz-keyframes circle{
-            0%{ transform:rotate(0deg); }
-            100%{ transform:rotate(-360deg); }
+            -webkit-animation: circle 5s infinite linear;
+            -moz-animation: circle 5s infinite linear
         }
 
+        #img img {
+            width: 100%;
+        }
+
+        #zhi {
+            position: absolute;
+            right: 0px;
+            top: 5.68rem;
+            width: 4.3rem;
+            height: 3.94rem;
+        }
+
+        #zhi img {
+            width: 100%;
+        }
+
+        @-webkit-keyframes circle {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
+        }
+
+        @-moz-keyframes circle {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
+        }
     </style>
 </head>
 <body>
 <div id="img">
     <img src="img/pan.png">
 </div>
+<div id="zhi">
+    <img src="img/zhi.png">
+</div>
 </body>
+<script type="text/javascript">
+    var _x_start, _y_start, _x_move, _y_move, _x_end, _y_end, left_start, top_start;
+    document.getElementById("zhi").addEventListener("touchstart", function (e) {
+        _y_start = e.touches[0].pageY;
+        top_start = $("#zhi").css("top");
+        console.log(top_start);
+        console.log(_y_start);
+    })
+    document.getElementById("zhi").addEventListener("touchmove", function (e) {
+        _y_move = e.touches[0].pageY;
+        $("#zhi").css("top",parseFloat(_y_move)-parseFloat(_y_start)+parseFloat(top_start)+"px");
+    })
+    document.getElementById("zhi").addEventListener("touchend", function (e) {
+        var _x_end = e.changedTouches[0].pageX;
+        var _y_end = e.changedTouches[0].pageY;
+    })
+    //阻止浏览器下拉事件
+    $('body').on('touchmove', function (event) {
+        event.preventDefault();
+    });
+    // or
+    // document.addEventListener('touchmove', function(e){e.preventDefault()}, false);
+
+</script>
 </html>

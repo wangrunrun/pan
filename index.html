@@ -87,6 +87,7 @@
 <div id="zhi">
     <img src="img/zhi.png">
 </div>
+<audio src="./studio/The%20Weeknd%20-%20I%20Feel%20It%20Coming%20Ft.%20Daft%20Punk%20(DawnFoxes.com).mp3" autoplay="autoplay" style="display: none"></audio>
 </body>
 <script type="text/javascript">
     var _x_start, _y_start, _x_move, _y_move, _x_end, _y_end, left_start, top_start;
@@ -96,16 +97,16 @@
     })
     document.getElementById("zhi").addEventListener("touchmove", function (e) {
         _y_move = e.touches[0].pageY;
-        var num=(parseFloat(_y_move)-parseFloat(_y_start)+parseFloat(top_start))*scale;
+        var num = (parseFloat(_y_move) - parseFloat(_y_start) + parseFloat(top_start)) * scale;
         console.log(num);
-        if(num<160){
-            $("#zhi").css("top",180/scale);
+        if (num < 160) {
+            $("#zhi").css("top", 180 / scale);
         }
-        else if(num>300){
-            $("#zhi").css("top",300/scale);
+        else if (num > 300) {
+            $("#zhi").css("top", 300 / scale);
         }
         else {
-            $("#zhi").css("top",parseFloat(_y_move)-parseFloat(_y_start)+parseFloat(top_start)+"px");
+            $("#zhi").css("top", parseFloat(_y_move) - parseFloat(_y_start) + parseFloat(top_start) + "px");
         }
 
     })

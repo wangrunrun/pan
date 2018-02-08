@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <title>Title</title>
+    <style type="text/css">
+        body,html{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        #img{
+            top: -126px;
+            left: -122px;
+            width: 614.5px;
+            height:614.5px;
+            background: url(img/pan.png) no-repeat;
+            background-size:614.5px 614.5px ;
+            position: absolute;
+            -webkit-animation:circle 5s infinite linear;
+            -moz-animation:circle 5s infinite linear
+        }
+        @-webkit-keyframes circle{
+            0%{ transform:rotate(0deg); }
+            100%{ transform:rotate(-360deg); }
+        }
+        @-moz-keyframes circle{
+            0%{ transform:rotate(0deg); }
+            100%{ transform:rotate(-360deg); }
+        }
+
+    </style>
+</head>
+<body>
+<div id="img"></div>
+</body>
+</html>

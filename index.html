@@ -45,7 +45,7 @@
 
         #img {
             top: -8rem;
-            left: -4.2rem;
+            left: -4.5rem;
             width: 18rem;
             height: 18rem;
             position: absolute;
@@ -60,7 +60,7 @@
         #zhi {
             position: absolute;
             right: 0px;
-            top: 5.68rem;
+            top: 4.68rem;
             width: 4.3rem;
             height: 3.94rem;
         }
@@ -99,8 +99,8 @@
         _y_move = e.touches[0].pageY;
         var num = (parseFloat(_y_move) - parseFloat(_y_start) + parseFloat(top_start)) * scale;
         console.log(num);
-        if (num < 60) {
-            $("#zhi").css("top", 60 / scale);
+        if (num < 100) {
+            $("#zhi").css("top", 100 / scale);
         }
         else if (num > 270) {
             $("#zhi").css("top", 270 / scale);

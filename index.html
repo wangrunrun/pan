@@ -44,10 +44,10 @@
         }
 
         #img {
-            top: -13.5rem;
-            left: -8.25rem;
-            width: 25rem;
-            height: 25rem;
+            top: -9.5rem;
+            left: calc(-9.5rem + 50vw);
+            width: 19rem;
+            height: 19rem;
             position: absolute;
             -webkit-animation: circle 5s infinite linear;
             -moz-animation: circle 5s infinite linear
@@ -68,7 +68,14 @@
         #zhi img {
             width: 100%;
         }
-
+        #bottom{
+            position: absolute;
+            width: 100%;
+            bottom:0;
+        }
+        #bottom img {
+            width: 100%;
+        }
         @-webkit-keyframes circle {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(-360deg); }
@@ -86,6 +93,9 @@
 </div>
 <div id="zhi">
     <img src="img/zhi.png">
+</div>
+<div id="bottom">
+    <img src="img/bot.png">
 </div>
 <audio src="./studio/1.mp3" autoplay="autoplay" style="display: none" id="bg-music"></audio>
 </body>
@@ -111,11 +121,12 @@
     document.getElementById("zhi").addEventListener("touchmove", function (e) {
         _y_move = e.touches[0].pageY;
         var num = (parseFloat(_y_move) - parseFloat(_y_start) + parseFloat(top_start)) * scale;
-        if (num < 100) {
-            $("#zhi").css("top", 100 / scale);
+        console.log(num)
+        if (num < 50) {
+            $("#zhi").css("top", 50 / scale);
         }
-        else if (num > 270) {
-            $("#zhi").css("top", 270 / scale);
+        else if (num > 235) {
+            $("#zhi").css("top", 235 / scale);
         }
         else {
             $("#zhi").css("top", parseFloat(_y_move) - parseFloat(_y_start) + parseFloat(top_start) + "px");

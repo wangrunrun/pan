@@ -1,55 +1,59 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <title>div块跟随手指拖动</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>纯css实现文字循环滚动效果</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 300px;
+            margin: 0 auto;
+            position: relative;
+            border: 1px solid #ff6700;
+        }
+
+        .animate {
+            padding-left: 20px;
+            font-size: 12px;
+            color: #000;
+            display: inline-block;
+            white-space: nowrap;
+            animation: 15s wordsLoop linear infinite normal;
+        }
+
+        @keyframes wordsLoop {
+            0% {
+                transform: translateX(0px);
+                -webkit-transform: translateX(0px);
+            }
+            100% {
+                transform: translateX(-100%);
+                -webkit-transform: translateX(-100%);
+            }
+        }
+
+        @-webkit-keyframes wordsLoop {
+            0% {
+                transform: translateX(0px);
+                -webkit-transform: translateX(0px);
+            }
+            100% {
+                transform: translateX(-100%);
+                -webkit-transform: translateX(-100%);
+            }
+        }
+    </style>
 </head>
 <body>
-<div id="id"></div>
-<style type="text/css">
-    div{
-        width: 200px;
-        height: 200px;
-        background: #ccc;
-        position: absolute;
-        left: 0px;
-        top: 100px;
-    }
-</style>
-<script type="text/javascript">
-    var _x_start,_y_start,_x_move,_y_move,_x_end,_y_end,left_start,top_start;
-    document.getElementById("id").addEventListener("touchstart",function(e)
-    {
-
-        _x_start=e.touches[0].pageX;
-        _y_start=e.touches[0].pageY;
-        // console.log("start",_x_start)
-        left_start=$("#id").css("left");
-        top_start=$("#id").css("top");
-
-    })
-    document.getElementById("id").addEventListener("touchmove",function(e)
-    {
-        _x_move=e.touches[0].pageX;
-        _y_move=e.touches[0].pageY;
-        // console.log("move",_x_move)
-        $("#id").css("left",parseFloat(_x_move)-parseFloat(_x_start)+parseFloat(left_start)+"px");
-        $("#id").css("top",parseFloat(_y_move)-parseFloat(_y_start)+parseFloat(top_start)+"px");
-        console.log(parseFloat(_y_move)-parseFloat(_y_start)+parseFloat(top_start));
-    })
-    document.getElementById("id").addEventListener("touchend",function(e)
-    {
-        var _x_end=e.changedTouches[0].pageX;
-        var _y_end=e.changedTouches[0].pageY;
-        // console.log("end",_x_end)
-    })
-    //阻止浏览器下拉事件
-    $('body').on('touchmove', function (event) {event.preventDefault();});
-    // or
-    // document.addEventListener('touchmove', function(e){e.preventDefault()}, false);
-
-</script>
+<div class="box">
+    <p class="animate">
+        君不见黄河之水天上来，奔流到海不复回，君不见高堂明镜悲白发，朝如青丝暮成雪，人生得意须尽欢，莫使金樽空对月
+    </p>
+</div>
 </body>
 </html>

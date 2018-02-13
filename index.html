@@ -5,7 +5,7 @@
         var scale = 1;
         !function (e) {
             function t(a) {
-                if (i[a])return i[a].exports;
+                if (i[a]) return i[a].exports;
                 var n = i[a] = {exports: {}, id: a, loaded: !1};
                 return e[a].call(n.exports, n, n.exports, t), n.loaded = !0, n.exports
             }
@@ -44,11 +44,11 @@
         }
 
         #img {
-            transform:rotate(270deg);
-            -ms-transform:rotate(270deg); 	/* IE 9 */
-            -moz-transform:rotate(270deg); 	/* Firefox */
-            -webkit-transform:rotate(270deg); /* Safari 和 Chrome */
-            -o-transform:rotate(270deg); 	/* Opera */
+            transform: rotate(270deg);
+            -ms-transform: rotate(270deg); /* IE 9 */
+            -moz-transform: rotate(270deg); /* Firefox */
+            -webkit-transform: rotate(270deg); /* Safari 和 Chrome */
+            -o-transform: rotate(270deg); /* Opera */
             top: -9.5rem;
             left: calc(-9.5rem + 50vw);
             width: 19rem;
@@ -56,10 +56,6 @@
             position: absolute;
             -webkit-animation: circle 5s infinite linear;
             -moz-animation: circle 5s infinite linear
-        }
-
-        #img img {
-            width: 100%;
         }
 
         #zhi {
@@ -70,25 +66,59 @@
             height: 3.94rem;
         }
 
-        #zhi img {
-            width: 100%;
-        }
-        #bottom{
+        #bottom {
             position: absolute;
             width: 100%;
-            bottom:0;
+            bottom: 0;
         }
-        #bottom img {
+
+        img {
             width: 100%;
         }
+
+        .button {
+            width: 3.24rem;
+            height: 0.88rem;
+            float: right;
+        }
+
         @-webkit-keyframes circle {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(-360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(-360deg);
+            }
         }
 
         @-moz-keyframes circle {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(-360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(-360deg);
+            }
+        }
+
+        .musicName {
+            color: #717272;
+            margin-left: 0.4rem;
+            padding-top: 0.2rem;
+            width: 3.60rem;
+            line-height: 0.5rem;
+            float: left;
+            font-size: 0.22rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .musicNameTop {
+            z-index: 10;
+            background: linear-gradient(to right,rgba(255, 255, 255, 1) , rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 1));
+            color: #717272;
+            height: 70px;
+            position: absolute;
+            width: 3.60rem;
         }
     </style>
 </head>
@@ -100,12 +130,18 @@
     <img src="img/zhi.png">
 </div>
 <div id="bottom">
+    <div class="musicName">
+        <div class="musicNameTop"></div>
+        <marquee  style="width: 100%;" scrollamount="10" scrolldelay ="1" behaviour="Scroll">文字、图片代码、Flash动画代码和gif动态小代码</marquee>
+    </div>
+    <div class="button"><img src="img/but.png"></div>
     <img src="img/bot.png">
 </div>
 <audio src="./studio/1.mp3" autoplay="autoplay" style="display: none" id="bg-music"></audio>
 </body>
 <script type="text/javascript">
     var audio = document.getElementById('bg-music');
+
     function audioAutoPlay() {
         document.addEventListener("WeixinJSBridgeReady", function () {
             audio.play();
@@ -117,6 +153,7 @@
             audio.play();
         }, false);
     }
+
     audioAutoPlay();
     var _y_start, _y_move, top_start;
     document.getElementById("zhi").addEventListener("touchstart", function (e) {

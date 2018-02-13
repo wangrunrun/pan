@@ -120,7 +120,7 @@
             z-index: 10;
             background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 1));
             color: #717272;
-            height: 70px;
+            height: 0.7rem;
             position: absolute;
             width: 3.60rem;
         }
@@ -137,6 +137,25 @@
             word-break: keep-all;
             white-space: nowrap;
             margin: 0;
+            -webkit-animation: 5s linear 0s infinite line;
+            -moz-animation: 5s linear 0s infinite line;
+        }
+        @keyframes line {
+            form {
+                transform:translateX(0px);
+            }
+            to {
+                transform:translateX( calc(-100% - 3.60rem));;
+            }
+        }
+
+        @-webkit-keyframes line { /* Safari and Chrome */
+            form {
+                transform: translateX(0px);
+            }
+            to {
+                transform: translateX(-100%);
+            }
         }
     </style>
 </head>
@@ -149,12 +168,10 @@
 <div id="bottom">
     <div class="musicName">
         <div class="musicNameTop"></div>
-        <div class="hid">
-            <div id="con">
-                <p id="conp"><span id="con1">
+        <div id="con">
+            <p id="conp">
             18301552530用户已获得25%的加奖资格　1830155253１用户已获得25%的加奖资格　1830155253２用户已获得25%的加奖资格</span>
-                    <span id="con2"></span></p>
-            </div>
+            </p>
         </div>
     </div>
     <div class="button"><img src="img/but.png"></div>
@@ -164,29 +181,6 @@
 </body>
 <script type="text/javascript">
     var audio = document.getElementById('bg-music');
-    var con = document.getElementById("con");
-    var conp = $("#conp");
-    var con1 = document.getElementById("con1");
-    var con2 = document.getElementById("con2");
-    con2.innerHTML = con1.innerHTML;
-    var ml=0;
-    function scrollUp() {
-        if (con2.offsetWidth <= -ml) {
-        } else {
-            ml--;
-            conp.css('marginLeft',ml);
-        }
-    }
-
-
-    var myScroll = setInterval("scrollUp()", 30);
-    con.onclick = function () {
-        console.log(con1.offsetWidth);
-        clearInterval(myScroll);
-    };
-    con.onmouseout = function () {
-        myScroll = setInterval("scrollUp()", 30);
-    };
 
 
     function audioAutoPlay() {

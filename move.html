@@ -3,38 +3,35 @@
 <head>
     <meta charset="utf-8">
     <title>CSS3旋转动画</title>
-    <style>
-        div{
-            width: 200px;
-            height: 200px;
-            background: url(./img/pan.png);
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-            transform-origin: 50% 50%;
-            -webkit-transform-origin: 50% 50%;
-            animation:3s linear 0s infinite myrotate;
-            -webkit-animation:3s linear 0s infinite myrotate;/* Safari and Chrome */
-            animation-fill-mode:forwards;/*动画播放完毕时停止，不回到初始状态*/
-            -webkit-animation-fill-mode:forwards;
-        }
-        @keyframes myrotate{
-            form {transform:rotate(0deg);}
-            to    {transform:rotate(360deg);}
-        }
-        @-webkit-keyframes myrotate{/* Safari and Chrome */
-            form {transform:rotate(0deg);}
-            to    {transform:rotate(360deg);}
-        }
-        /*第一个时间代表完成一次运动所消耗的时间，第二个时间代表动画于多少时间后开始播放*/
-        /*linear代表线性运动（匀速运动）；infinite为无限运动（一直运动）*/
-    </style>
-
+    <script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <body>
-<div>3D旋转</div>
+<div class="marquee" id="marquee">
+    <p><span id="marquee-content">
+            18301552530用户已获得25%的加奖资格　1830155253１用户已获得25%的加奖资格　1830155253２用户已获得25%的加奖资格</span>
+        <span id="marquee-content-footer"></span></p>
+</div>
 <script type="text/javascript">
+    $(function () {
+        var m = $('#marquee')[0];
+        var m1 = $('#marquee-content')[0];
+        var m2 = $('#marquee-content-footer')[0];
+        m2.textContent = m1.textContent;
+
+        function marquee() {
+            if (m2.offsetWidth <= m.scrollLeft) {
+                m.scrollLeft -= m2.offsetWidth;
+            } else {
+                m.scrollLeft++;
+            }
+        }
+
+        timer = setInterval(marquee, 30);
+        //m.onmouseover = clearInterval(timer, 30);
+        /*m.onmouseout = function () {
+            timer = setInterval(marquee,30);
+        }*/
+    })
 
 </script>
 </body>

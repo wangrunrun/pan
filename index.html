@@ -52,10 +52,12 @@
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
-            -webkit-animation: circle 5s infinite 0s linear;
-            -moz-animation: circle 5s infinite 0s linear;
-            animation-fill-mode:forwards;/*动画播放完毕时停止，不回到初始状态*/
-            -webkit-animation-fill-mode:forwards;
+            transform-origin: 50% 50%;
+            -webkit-transform-origin: 50% 50%;
+            -webkit-animation: 5s linear 0s infinite circle;
+            -moz-animation: 5s linear 0s infinite circle;
+            animation-fill-mode: forwards; /*动画播放完毕时停止，不回到初始状态*/
+            -webkit-animation-fill-mode: forwards;
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
         }
@@ -85,14 +87,22 @@
         }
 
         @keyframes circle {
-            0% {
+            form {
                 transform: rotate(0deg);
             }
-            100% {
-                transform: rotate(-360deg);
+            to {
+                transform: rotate(360deg);
             }
         }
 
+        @-webkit-keyframes circle { /* Safari and Chrome */
+            form {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
         .musicName {
             color: #717272;
@@ -108,11 +118,31 @@
 
         .musicNameTop {
             z-index: 10;
-            background: linear-gradient(to right,rgba(255, 255, 255, 1) , rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 1));
+            background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 1));
             color: #717272;
             height: 70px;
             position: absolute;
             width: 3.60rem;
+        }
+
+        .hid {
+            height: 0.45rem;
+            overflow: hidden;
+        }
+
+        #con {
+            height: .5rem;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            word-break: keep-all;
+            white-space: nowrap;
+            font-size: 0.22rem;
+        }
+
+        #con p {
+            word-break: keep-all;
+            white-space: nowrap;
+            margin: 0;
         }
     </style>
 </head>
@@ -125,7 +155,13 @@
 <div id="bottom">
     <div class="musicName">
         <div class="musicNameTop"></div>
-        <marquee  style="width: 100%;" scrollamount="10" scrolldelay ="1" behaviour="Scroll">文字、图片代码、Flash动画代码和gif动态小代码</marquee>
+        <div class="hid">
+            <div id="con">
+                <p><span id="con1">
+            18301552530用户已获得25%的加奖资格　1830155253１用户已获得25%的加奖资格　1830155253２用户已获得25%的加奖资格</span>
+                    <span id="con2"></span></p>
+            </div>
+        </div>
     </div>
     <div class="button"><img src="img/but.png"></div>
     <img src="img/bot.png">
@@ -134,6 +170,29 @@
 </body>
 <script type="text/javascript">
     var audio = document.getElementById('bg-music');
+    var con = document.getElementById("con");
+    var con1 = document.getElementById("con1");
+    var con2 = document.getElementById("con2");
+    con2.innerHTML = con1.innerHTML;
+
+
+    function scrollUp() {
+        if (con.scrollLeft >= con1.offsetWidth) {
+            con.scrollLeft = 0;
+        } else {
+            con.scrollLeft++;
+        }
+    }
+
+
+    var myScroll = setInterval("scrollUp()", 30);
+    con.onmouseover = function () {
+        clearInterval(myScroll);
+    };
+    con.onmouseout = function () {
+        myScroll = setInterval("scrollUp()", 30);
+    };
+
 
     function audioAutoPlay() {
         document.addEventListener("WeixinJSBridgeReady", function () {
@@ -175,8 +234,6 @@
     $('body').on('touchmove', function (event) {
         event.preventDefault();
     });
-    // or
-    // document.addEventListener('touchmove', function(e){e.preventDefault()}, false);
 
 </script>
 </html>

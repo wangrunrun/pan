@@ -54,9 +54,10 @@
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
-            -webkit-animation: circle 5s infinite linear;
-            -moz-animation: circle 5s infinite linear;
-            -webkit-transform-style: preserve-3d;
+            -webkit-animation: circle 5s infinite 0s linear;
+            -moz-animation: circle 5s infinite 0s linear;
+            animation-fill-mode:forwards;/*动画播放完毕时停止，不回到初始状态*/
+            -webkit-animation-fill-mode:forwards;
         }
 
         #zhi {

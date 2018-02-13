@@ -45,14 +45,15 @@
         }
 
         #img {
-            -webkit-backface-visibility: hidden;
             top: -9.5rem;
             left: calc(-9.5rem + 50vw);
             width: 19rem;
             height: 19rem;
             position: absolute;
             -webkit-animation: circle 5s infinite linear;
-            -moz-animation: circle 5s infinite linear
+            -moz-animation: circle 5s infinite linear;
+            -webkit-backface-visibility: hidden;
+            -webkit-transform-style: preserve-3d;
         }
         #img img {
             -webkit-backface-visibility: hidden;

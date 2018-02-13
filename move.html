@@ -10,18 +10,18 @@
             background: yellow;
             transform-origin: 100% 50%;
             -webkit-transform-origin: 100% 50%;
-            animation:3s linear 0s myrotate;
-            -webkit-animation:3s linear 0s myrotate;/* Safari and Chrome */
+            animation:3s linear 0s infinite myrotate;
+            -webkit-animation:3s linear 0s infinite myrotate;/* Safari and Chrome */
             animation-fill-mode:forwards;/*动画播放完毕时停止，不回到初始状态*/
             -webkit-animation-fill-mode:forwards;
         }
         @keyframes myrotate{
-            form {transform:rotateY(0deg);}
-            to    {transform:rotateY(180deg);}
+            form {transform:rotate(0deg);}
+            to    {transform:rotate(360deg);}
         }
         @-webkit-keyframes myrotate{/* Safari and Chrome */
-            form {transform:rotateY(0deg);}
-            to    {transform:rotateY(180deg);}
+            form {transform:rotate(0deg);}
+            to    {transform:rotate(360deg);}
         }
         /*第一个时间代表完成一次运动所消耗的时间，第二个时间代表动画于多少时间后开始播放*/
         /*linear代表线性运动（匀速运动）；infinite为无限运动（一直运动）*/

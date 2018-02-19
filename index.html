@@ -183,14 +183,14 @@
 </body>
 <script type="text/javascript">
     var audio = document.getElementById('bg-music');
-    var tt=document.styleSheets[0];
-    function setKeyframes() {
-        tt.deleteRule(12);
-        tt.insertRule("@keyframes line{form{transform:translateX( 0 );} to{transform:translateX(-"+($('#conp').width()+360/scale)+"px)}}",12);
-        tt.deleteRule(13);
-        tt.insertRule("@-webkit-keyframes line{form{transform:translateX( 0 );} to{transform:translateX(-"+($('#conp').width()+360/scale)+"px)}}",13);
-    }
-    setKeyframes();
+    // var tt=document.styleSheets[0];
+    // function setKeyframes() {
+    //     tt.deleteRule(12);
+    //     tt.insertRule("@keyframes line{form{transform:translateX( 0 );} to{transform:translateX(-"+($('#conp').width()+360/scale)+"px)}}",12);
+    //     tt.deleteRule(13);
+    //     tt.insertRule("@-webkit-keyframes line{form{transform:translateX( 0 );} to{transform:translateX(-"+($('#conp').width()+360/scale)+"px)}}",13);
+    // }
+    // setKeyframes();
     function audioAutoPlay() {
         document.addEventListener("WeixinJSBridgeReady", function () {
             audio.play();
@@ -212,7 +212,6 @@
     document.getElementById("zhi").addEventListener("touchmove", function (e) {
         _y_move = e.touches[0].pageY;
         var num = (parseFloat(_y_move) - parseFloat(_y_start) + parseFloat(top_start)) * scale;
-        console.log(num)
         if (num < 50) {
             $("#zhi").css("top", 50 / scale);
         }
@@ -223,10 +222,10 @@
             $("#zhi").css("top", parseFloat(_y_move) - parseFloat(_y_start) + parseFloat(top_start) + "px");
         }
 
-    })
+    });
     document.getElementById("zhi").addEventListener("touchend", function (e) {
 
-    })
+    });
     //阻止浏览器下拉事件
     $('body').on('touchmove', function (event) {
         event.preventDefault();

@@ -225,8 +225,10 @@
     document.getElementById("zhi").addEventListener("touchend", function (e) {
 
     });
-   
-
+    //阻止浏览器下拉事件
+    $('body').on('touchmove', function (event) {
+        event.preventDefault();
+    });
 
 </script>
 </html>

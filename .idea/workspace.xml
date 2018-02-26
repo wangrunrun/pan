@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="297492ab-24c9-482b-82df-688dcbf03fc0" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="297492ab-24c9-482b-82df-688dcbf03fc0" name="默认的" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -199,15 +197,15 @@
       <option name="presentableId" value="Default" />
       <updated>1518064400514</updated>
       <workItem from="1518064402257" duration="17420000" />
-      <workItem from="1519624119603" duration="159000" />
+      <workItem from="1519624119603" duration="599000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17579000" />
+    <option name="totallyTimeSpent" value="18019000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="1" width="2558" height="1407" extended-state="0" />
+    <frame x="1" y="1" width="2558" height="1407" extended-state="1" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20952381" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />

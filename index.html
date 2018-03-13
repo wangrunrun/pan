@@ -224,10 +224,16 @@
             $("#zhi").css("top", parseFloat(_y_move) - parseFloat(_y_start) + parseFloat(top_start) + "px");
         }
     });
+    var musicList=["./studio/1.mp3","./studio/Dreaming.mp3","./studio/Grand Illusion.mp3"];
+    var musicNum=0;
     document.getElementById("zhi").addEventListener("touchend", function (e) {
-        $('#music1')[0].pause();
-        $('#music1').attr('src', luyinpath);
-        $('#music1')[0].play();
+        $('#bg-music')[0].pause();
+        musicNum++;
+        $('#bg-music').attr('src', musicList[0]);
+        $('#bg-music')[0].play();
+        if(musicNum>=2){
+            musicNum=0;
+        }
     });
     //阻止浏览器下拉事件
     $('body').on('touchmove', function (event) {

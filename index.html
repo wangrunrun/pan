@@ -227,10 +227,10 @@
     var musicList=["./studio/1.mp3","./studio/Dreaming.mp3","./studio/Grand Illusion.mp3"];
     var musicNum=0;
     document.getElementById("zhi").addEventListener("touchend", function (e) {
-        $('#bg-music')[0].pause();
+        $('#bg-music').pause();
         musicNum++;
-        $('#bg-music').attr('src', musicList[0]);
-        $('#bg-music')[0].play();
+        $('#bg-music').attr('src', musicList[musicNum]);
+        $('#bg-music').play();
         if(musicNum>=2){
             musicNum=0;
         }
